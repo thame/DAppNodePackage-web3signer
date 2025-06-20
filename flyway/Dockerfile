@@ -16,7 +16,7 @@ RUN wget -q https://github.com/ConsenSys/web3signer/archive/refs/tags/${UPSTREAM
 ##########
 # FLYWAY #
 ##########
-FROM flyway/flyway:9.16.1-alpine
+FROM flyway/flyway:latest
 ARG UPSTREAM_VERSION
 
 RUN apk update && apk --no-cache add postgresql-client
