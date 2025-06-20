@@ -19,7 +19,7 @@ RUN wget -q https://github.com/ConsenSys/web3signer/archive/refs/tags/${UPSTREAM
 FROM flyway/flyway:latest
 ARG UPSTREAM_VERSION
 
-RUN apk update && apk --no-cache add postgresql-client
+RUN apt update && apt install -y postgresql-client
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh && rm -rf /flyway/sql/*
 COPY --from=postgres-migrations /usr/src/app/web3signer-${UPSTREAM_VERSION}/slashing-protection/src/main/resources/migrations/postgresql/* /flyway/sql/
